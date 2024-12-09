@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taş Kağıt Makas JavaScript Egzersizi</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&family=Pixelify+Sans:wght@400..700&family=Quicksand:wght@300..700&display=swap');
+      </style>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section>
+      <div class="hero">
+    <h1>Hamlen Ne?</h1>
+
+    <button onclick="play('Taş')">Taş</button>
+    <button onclick="play('Kağıt')">Kağıt</button>
+    <button onclick="play('Makas')">Makas</button>
+  </div>
+  </section>
+    <script>
+      const move = {
+        rock: "Taş",
+        paper: "Kağıt",
+        scissors: "Makas",
+      };
+
+      const situation = {
+        win: "Kazandınız",
+        lose: "Kaybettiniz",
+        tie: "Berabere",
+      };
+
+      function play(userMove) {
+        const random = Math.random();
+        let computerMove;
+
+        if (random < 1 / 3) {
+          computerMove = move.rock;
+        } else if (random < 2 / 3) {
+          computerMove = move.paper;
+        } else {
+          computerMove = move.scissors;
+        }
+
+        let result;
+
+        switch (true){
+        case userMove === computerMove :
+          result = situation.tie;
+          break;
+
+        case 
+        (userMove === move.rock && computerMove === move.scissors) ||
+        (userMove === move.paper && computerMove === move.rock) || 
+        (userMove === move.scissors && computerMove === move.paper):
+       
+          result = situation.win;
+          break;
+
+        default:
+          result = situation.lose;
+          break;
+        }
+
+        alert(`
+Sizin Hamleniz: ${userMove}
+Bilgisayarın Hamlesi: ${computerMove}
+Sonuç: ${result}
+`);
+      }
+    </script>
+  </body>
+</html>
